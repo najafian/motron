@@ -1,0 +1,2 @@
+motron @ git+https://github.com/najafian/motron.git@main#egg=motron
+flask==2.1.0   # Example Flask version
