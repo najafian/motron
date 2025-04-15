@@ -1,7 +1,0 @@
-setup.py
-motron/__init__.py
-motron.egg-info/PKG-INFO
-motron.egg-info/SOURCES.txt
-motron.egg-info/dependency_links.txt
-motron.egg-info/requires.txt
-motron.egg-info/top_level.txt

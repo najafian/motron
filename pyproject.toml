@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "motron"
+version = "0.1.0"
+description = "Motron - A Python-based framework mimicking Spring Boot."
+dependencies = [
+    "flask==2.3.2",
+    "apscheduler==3.9.1",
+    "pydantic<2.0",
+    "PyYAML>=6.0.1",
+    "Werkzeug~=3.1.3",
+    "PyJWT==2.10.1"
+]
+#author = "Mehdi"
+#author_email = "najafian@live.com"
+
+[tool.setuptools]
+# No author or author_email here
+# Any specific setuptools configurations go here (e.g., packages, find packages, etc.)
+
+[tool.setuptools.packages.find]
+where = ["src/main"]
+exclude = ["tests"]

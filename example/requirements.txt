@@ -1,0 +1,1 @@
+motron @ git+ssh://git@gitlab.dev.motrada.net:5922/researching/motron.git@v0.0.1

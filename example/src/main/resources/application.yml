@@ -1,0 +1,12 @@
+motron:
+  title: Motron Rules!
+  debug: true
+  port: 9000
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          public-key-location: classpath:key/public_key.pem
+  logging:
+    level:
+      presentation.reset.controllers.FooRestController: INFO
