@@ -1,8 +1,3 @@
-Here’s the corrected and clean version of your `README.md` including consistent formatting, no markdown nesting issues, and improved clarity:
-
----
-
-```markdown
 # 🚀 Motron Framework – Publish & Usage Guide
 
 Motron is a Spring Boot–inspired Python framework that brings component scanning, annotation-based injection, scheduling, REST routing, configuration binding, and more — all with a simple developer experience.
@@ -11,7 +6,7 @@ Motron is a Spring Boot–inspired Python framework that brings component scanni
 
 ## 🧱 Project Structure (Motron)
 
-```
+
 
 ```markdown
 motron/
@@ -32,8 +27,10 @@ motron/
 git add .
 git commit -m "release: v0.1.4"
 git push
-git tag v0.1.4
-git push origin v0.1.4
+git tag -d v0.0.1
+git push --delete origin v0.0.1
+git tag v0.0.1
+git push origin v0.0.1
 ```
 
 ---
