@@ -24,3 +24,6 @@ dependencies = [
 [tool.setuptools.packages.find]
 where = ["src/main"]
 exclude = ["tests"]
+
+[project.optional-dependencies]
+dev = ["pytest"]

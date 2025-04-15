@@ -10,6 +10,7 @@ setup(
         "apscheduler==3.9.1",
         "pydantic<2.0",
         "PyYAML>=6.0.1",
+        "pytest>=7.4",
         "Werkzeug~=3.1.3"
     ],
     include_package_data=True,
