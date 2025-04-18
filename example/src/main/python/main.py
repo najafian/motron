@@ -1,8 +1,4 @@
-from motron import MotronApplication
-from motron import ApplicationContext
-
-
-
+from motron import ApplicationContext, MotronApplication
 
 @MotronApplication
 def run_application(context: ApplicationContext):

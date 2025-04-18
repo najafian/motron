@@ -1,7 +1,8 @@
+from example.src.main.python.domain.repository.FooRepository import FooRepository
 from motron import UseCase, Bean
 from motron.data.repository.logger import MotronLogger
 
-from src.main.python.domain.repository.FooRepository import FooRepository
+
 
 
 @UseCase

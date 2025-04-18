@@ -22,7 +22,7 @@ from .presentation.rest.validation import Valid
 
 
 
-from .data.repository.di.application_context import ApplicationContext
+from .core.application_context import ApplicationContext
 
 from .presentation.scheduler.annotations import Scheduled
 

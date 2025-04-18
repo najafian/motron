@@ -1,6 +1,8 @@
+from example.src.main.python.domain.repository.FooRepository import FooRepository
+print(f"[Impl] FooRepository id: {id(FooRepository)}")
 from motron import Repository
 
-from src.main.python.domain.repository.FooRepository import FooRepository
+
 
 
 @Repository

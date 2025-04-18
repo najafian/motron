@@ -89,8 +89,7 @@ def MotronApplication(func):
         project_root = os.getcwd()
         auto_import_modules(project_root)
 
-        context = ApplicationContext()
-        context.initialize()
+        context = ApplicationContext.get_instance()
 
         result = func(context, *args, **kwargs)
         setUpPort(port=port)

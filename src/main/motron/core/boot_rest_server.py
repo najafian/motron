@@ -1,5 +1,7 @@
 from flask import Flask, request
 import inspect
+
+from motron.core.application_context import ApplicationContext
 from motron.core.security.jwt_authentication import jwt_authentication_middleware
 from motron.presentation.rest.request import RequestParam, RequestBody  # Your custom types
 
@@ -8,9 +10,10 @@ route_registry = []    # From @GetMapping, etc.
 rest_controllers = []  # From @RestController
 
 def setUpPort(port=5000):
+    context = ApplicationContext.get_instance()
     controller_instances = {}
     for ctrl_class in rest_controllers:
-        instance = ctrl_class()
+        instance = context.create_bean(ctrl_class)
         controller_instances[ctrl_class.__name__] = instance
 
     for route_def in route_registry:
