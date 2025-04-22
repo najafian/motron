@@ -67,9 +67,14 @@ def auto_import_modules(base_dir="."):
         except Exception as e:
             globalLogger.info(f"[Motron] Failed to import {module_name}: {e}")
 
-def MotronApplication(func):
-    @functools.wraps(func)
-    def wrapper(*args, **kwargs):
+def MotronApplication(cls):
+    if not isinstance(cls, type):
+        raise TypeError("@MotronApplication must be used on a class.")
+
+    original_init = cls.__init__
+
+    @functools.wraps(original_init)
+    def new_init(self, *args, **kwargs):
         config_path = os.path.join(os.getcwd(), "..", "resources", "application.yml")
         port = 5000
 
@@ -78,8 +83,8 @@ def MotronApplication(func):
                 config = yaml.safe_load(f)
                 motron_conf = config.get("motron", {})
                 port = motron_conf.get("port", port)
-                title = motron_conf.get("title", {})
-                debug = motron_conf.get("debug", {})
+                title = motron_conf.get("title", "Motron")
+                debug = motron_conf.get("debug", True)
                 globalLogger.info(f" {title} Loaded port from application.yml: {port}")
                 globalLogger.info(f" Debug mode: {debug}")
         else:
@@ -89,10 +94,14 @@ def MotronApplication(func):
         project_root = os.getcwd()
         auto_import_modules(project_root)
 
-        context = ApplicationContext.get_instance()
+        # Initialize ApplicationContext before class instance
+        ApplicationContext.get_instance()
 
-        result = func(context, *args, **kwargs)
+        # Call the original __init__
+        original_init(self, *args, **kwargs)
+
+        # Start the REST server
         setUpPort(port=port)
-        return result
 
-    return wrapper
+    cls.__init__ = new_init
+    return cls

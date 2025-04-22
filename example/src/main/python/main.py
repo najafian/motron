@@ -1,10 +1,10 @@
 from motron import ApplicationContext, MotronApplication
 
 @MotronApplication
-def run_application(context: ApplicationContext):
+class Init:
     pass
 
 
 if __name__ == "__main__":
-    run_application()
+    Init()
 
