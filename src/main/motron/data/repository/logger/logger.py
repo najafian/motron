@@ -39,7 +39,7 @@ class MotronLogger:
         # Determine allowed level from config
         self.allowed_level = self._resolve_level_from_config()
 
-        if not self.logger.handlers:
+        if not self.logger.hasHandlers():  # ✅ FIXED: prevents double logging
             ch = logging.StreamHandler(sys.stdout)
             formatter = ColoredFormatter(
                 '%(asctime)s [%(levelname)s] %(name)s:%(lineno)d - %(message)s',
@@ -47,6 +47,8 @@ class MotronLogger:
             )
             ch.setFormatter(formatter)
             self.logger.addHandler(ch)
+
+        self.logger.propagate = False  # ✅ FIXED: disables propagation to parent loggers
 
     def _resolve_level_from_config(self):
         config = get_config().get("motron", {}).get("logging", {}).get("level", {})

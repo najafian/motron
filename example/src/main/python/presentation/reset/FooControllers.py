@@ -1,6 +1,6 @@
 # from example.src.main.python.domain.repository.FooRepository import FooRepository
 # print(f"[RestController] FooRepository id: {id(FooRepository)}")
-from example.src.main.python.domain.usecase.FooServiceImpl import FooService1
+from example.src.main.python.domain.usecase.PrintFoo import FooService
 from motron.data.repository.logger import MotronLogger
 from motron import GetMapping, PostMapping, RequestMapping, RequestMethod, RestController
 from motron.presentation.rest.response import ResponseEntity
@@ -11,8 +11,8 @@ from motron.presentation.rest.request import RequestBody, RequestParam
 class FooRestController:
     logger: MotronLogger
 
-    def __init__(self,fooService1:FooService1):
-        self.fooService1=fooService1
+    def __init__(self, fooService1:FooService):
+        self.fooService1= fooService1
         pass
 
     @GetMapping("/foo/<id>")
