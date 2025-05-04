@@ -10,3 +10,12 @@ motron:
   logging:
     level:
       presentation.reset.controllers.FooRestController: INFO
+
+database:
+  type: mongo
+  mode: standalone  # or "server"
+  mongo:
+    uri: "mongodb://localhost:27017"
+    name: "motron"
+    username: "motron"
+    password: 123
